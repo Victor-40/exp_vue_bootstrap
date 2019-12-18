@@ -1,6 +1,7 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 import HelloWorld from '../components/HelloWorld.vue';
+import Status from '../components/Status.vue';
 
 Vue.use(VueRouter);
 
@@ -9,6 +10,11 @@ const routes = [
     path: '/',
     name: 'helloWorld',
     component: HelloWorld,
+  },
+  {
+    path: '/status',
+    name: 'status',
+    component: Status,
   },
   {
     path: '/about',

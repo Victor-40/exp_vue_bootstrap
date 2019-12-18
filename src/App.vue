@@ -5,6 +5,7 @@
           <b-col cols="2">
             <ul>
               <li><router-link to="/">Home</router-link></li>
+              <li><router-link to="/status">Status VMs</router-link></li>
               <li><router-link to="/about">About</router-link></li>
             </ul>
           </b-col>
