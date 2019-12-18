@@ -12,6 +12,7 @@
         </b-row>
         <hr>
       </b-container>
+      {{books}}
   </div>
 </template>
 <style scoped>
@@ -32,7 +33,7 @@ export default {
   },
   methods: {
     getBooks() {
-      const path = 'http://localhost:5000/books';
+      const path = 'http://localhost:5000/api/cfg';
       axios.get(path)
         .then((res) => {
           this.books = res.data.books;
