@@ -1,10 +1,16 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
+      <b-container fluid>
+        <b-row>
+          <b-col cols="2">
+            <ul>
+              <li><router-link to="/">Home</router-link></li>
+              <li><router-link to="/about">About</router-link></li>
+            </ul>
+          </b-col>
+          <b-col><router-view/></b-col>
+        </b-row>
+      </b-container>
   </div>
 </template>
 
@@ -13,7 +19,7 @@
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
+  /* text-align: center; */
   color: #2c3e50;
 }
 
