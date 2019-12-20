@@ -38,8 +38,6 @@ export default {
   data() {
     return {
       cfg: {},
-      message: '',
-      showMessage: false,
       freeVm: [],
       busyVm: [],
     };

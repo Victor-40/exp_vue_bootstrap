@@ -2,6 +2,7 @@ import Vue from 'vue';
 import VueRouter from 'vue-router';
 import HelloWorld from '../components/HelloWorld.vue';
 import Status from '../components/Status.vue';
+import FindSetups from '../components/FindSetups.vue';
 
 Vue.use(VueRouter);
 
@@ -16,6 +17,12 @@ const routes = [
     name: 'status',
     component: Status,
   },
+  {
+    path: '/find',
+    name: 'find',
+    component: FindSetups,
+  },
+
   {
     path: '/about',
     name: 'about',
