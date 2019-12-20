@@ -4,15 +4,23 @@
     <br>
        <b-container>
         <b-row>
-          <b-col></b-col>
           <b-col>Free</b-col>
-          <b-col></b-col>
           <b-col>Busy</b-col>
-          <b-col></b-col>
         </b-row>
         <hr>
+        <b-row>
+          <b-col>
+            <ul>
+              <li v-for="item in freeVm" :key="item">{{item}}</li>
+            </ul>
+          </b-col>
+          <b-col>
+            <ul style="color: red">
+              <li v-for="item in busyVm" :key="item">{{item}}</li>
+            </ul>
+          </b-col>
+        </b-row>
       </b-container>
-      {{books}}
   </div>
 </template>
 <style scoped>
@@ -26,9 +34,12 @@ import axios from 'axios';
 export default {
   data() {
     return {
-      books: [],
+      cfg: {},
       message: '',
       showMessage: false,
+      freeVm: [],
+      busyVm: [],
+      tt: null,
     };
   },
   methods: {
@@ -36,7 +47,15 @@ export default {
       const path = 'http://localhost:5000/api/cfg';
       axios.get(path)
         .then((res) => {
-          this.books = res.data.books;
+          this.cfg = res.data;
+          // eslint-disable-next-line
+          for (let key in this.cfg) {
+            if (this.cfg[key].status === 'free') {
+              this.freeVm.push(key);
+            } else {
+              this.busyVm.push(key);
+            }
+          }
         })
         .catch((error) => {
           // eslint-disable-next-line
