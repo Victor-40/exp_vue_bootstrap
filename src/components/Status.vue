@@ -15,7 +15,7 @@
             </ul>
           </b-col>
           <b-col>
-            <ul style="color: red">
+            <ul id="busy">
               <li v-for="item in busyVm" :key="item">{{item}}</li>
             </ul>
           </b-col>
@@ -26,6 +26,9 @@
 <style scoped>
 h3 {
   text-align: center;
+}
+#busy {
+  color: red;
 }
 </style>
 <script>
@@ -39,11 +42,10 @@ export default {
       showMessage: false,
       freeVm: [],
       busyVm: [],
-      tt: null,
     };
   },
   methods: {
-    getBooks() {
+    getStatus() {
       const path = 'http://localhost:5000/api/cfg';
       axios.get(path)
         .then((res) => {
@@ -64,7 +66,7 @@ export default {
     },
   },
   created() {
-    this.getBooks();
+    this.getStatus();
   },
 };
 </script>
